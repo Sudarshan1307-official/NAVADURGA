@@ -1,0 +1,6 @@
+{
+  "name": "Sri Navadurga Sanctum",
+  "description": "A devotional sanctum dedicated to the Nine Divine Forms of Adi Parashakti, featuring interactive orbital sacred nodes, authentic Sanskrit transliterated shlokas, full-screen mandala navigation, and working puja rituals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

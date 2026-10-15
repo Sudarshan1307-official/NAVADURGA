@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-maroon-deep: #120205;
+    --color-maroon-mid: #25060b;
+    --color-maroon-accent: #3d0c14;
+    --color-gold-bright: #fae182;
+    --color-gold-base: #e6b338;
+    --color-gold-deep: #a87913;
+    --color-ivory: #fbf8f0;
+  }
+
+  body {
+    background-color: #100305;
+    color: #ede5d8;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-marcellus {
+  font-family: 'Marcellus', serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Sacred gradients */
+.bg-sanctum-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(55, 12, 19, 0.7) 0%, rgba(20, 4, 7, 0.95) 65%, #0d0204 100%);
+}
+
+.bg-mandala-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(65, 15, 24, 0.8) 0%, rgba(24, 5, 9, 0.95) 60%, #0a0103 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fff7d6 0%, #fae182 25%, #e6b338 65%, #a87913 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #d4a024 0%, #fff4c2 50%, #d4a024 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.border-gold-glow {
+  box-shadow: 0 0 15px rgba(230, 179, 56, 0.25), inset 0 0 10px rgba(230, 179, 56, 0.15);
+}
+
+.border-gold-glow-lg {
+  box-shadow: 0 0 30px rgba(230, 179, 56, 0.4), inset 0 0 15px rgba(230, 179, 56, 0.25);
+}
+
+/* Railway destination style scrolling shloka */
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-shloka-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.animate-shloka-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Diya Flame Flicker */
+@keyframes flame-flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(255, 170, 0, 0.8));
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 190, 40, 0.95));
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-2deg);
+    opacity: 0.9;
+    filter: drop-shadow(0 0 7px rgba(255, 150, 0, 0.75));
+  }
+  75% {
+    transform: scale(1.04, 1) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(255, 200, 50, 1));
+  }
+}
+
+.animate-flame {
+  animation: flame-flicker 2.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-mandala {
+  animation: spin-slow 80s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-slow 110s linear infinite reverse;
+}
+
+/* Aarti lamp offering Pradakshina rotation */
+@keyframes aarti-orbit {
+  0% {
+    transform: rotate(0deg) translateY(-140px) rotate(0deg) scale(0.9);
+    filter: drop-shadow(0 0 15px rgba(255, 180, 50, 0.7));
+  }
+  25% {
+    transform: rotate(90deg) translateY(-140px) rotate(-90deg) scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(255, 200, 70, 0.9));
+  }
+  50% {
+    transform: rotate(180deg) translateY(-140px) rotate(-180deg) scale(0.95);
+    filter: drop-shadow(0 0 15px rgba(255, 180, 50, 0.7));
+  }
+  75% {
+    transform: rotate(270deg) translateY(-140px) rotate(-270deg) scale(1.05);
+    filter: drop-shadow(0 0 22px rgba(255, 200, 70, 0.85));
+  }
+  100% {
+    transform: rotate(360deg) translateY(-140px) rotate(-360deg) scale(0.9);
+    filter: drop-shadow(0 0 15px rgba(255, 180, 50, 0.7));
+  }
+}
+
+.animate-aarti-pradakshina {
+  animation: aarti-orbit 4s ease-in-out infinite;
+}
+
+/* Flower petal falling animation */
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--petal-x, 20px), 110vh, 0) rotate(var(--petal-rot, 360deg));
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation: petal-fall var(--fall-duration, 5s) linear forwards;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
